@@ -30,7 +30,7 @@ const router = createBrowserRouter([
           Component: Registration,
         },
         {
-          path: "profile",
+          path: "/profile",
           element: <PrivateRoute><Profile></Profile></PrivateRoute>
         }
     ]

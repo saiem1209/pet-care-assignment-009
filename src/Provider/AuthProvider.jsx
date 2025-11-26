@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const authData = {
-        registerwitheEmalPassword, setUser, user, handlegooglesignin,
+        registerwitheEmalPassword, setUser, user, handlegooglesignin,loading
     }
     return <AuthContext value={authData}>
         {children}
