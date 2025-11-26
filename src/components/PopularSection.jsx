@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 const PopularSection = () => {
 
@@ -20,11 +21,11 @@ const PopularSection = () => {
                 </div>
                 <div className='grid grid-cols-1 mt-12 md:grid-cols-3 gap-4'>
                     {
-                        services.slice(0,6).map(service =>
+                        services.slice(0, 6).map(service =>
                             <div key={service.serviceId} className="card bg-base-100 w-80 shadow-sm hover:shadow-xl transition">
                                 <figure>
                                     <img
-                                    className='h-[200px] w-full object-cover'
+                                        className='h-[200px] w-full object-cover'
                                         src={service?.image}
                                         alt="Shoes" />
                                 </figure>
@@ -35,7 +36,7 @@ const PopularSection = () => {
                                         <p>Price:{service?.price}</p>
                                     </div>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">View Details</button>
+                                        <Link to={`/details/${service?.serviceId}`}><button className="btn btn-primary">View Details</button></Link>
                                     </div>
                                 </div>
                             </div>

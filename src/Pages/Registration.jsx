@@ -6,6 +6,7 @@ import { updateProfile } from 'firebase/auth';
 
 const Registration = () => {
 
+
     const { registerwitheEmalPassword, setUser, user, handlegooglesignin } = useContext(AuthContext);
 
     const handlesubmit = (e) => {
@@ -14,6 +15,28 @@ const Registration = () => {
         const password = e.target.password.value;
         const name = e.target.name.value;
         const photourl = e.target.photourl.value;
+
+
+        const uppercase = /[A-Z]/;
+
+        const lowercase = /[a - z] /;
+
+        if (password.length < 6) {
+
+            return alert("less than 6 characters")
+
+        }
+
+        if (!uppercase.test(password)) {
+
+            return alert("Need a Uppercase")
+
+        }
+
+        if (!lowercase.test(password)) {
+
+            return alert("Need a Lowercase")
+        }
 
         registerwitheEmalPassword(email, password)
             .then((userCredential) => {

@@ -1,6 +1,6 @@
 
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import auth from '../Firebase/firebase.config';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
@@ -9,6 +9,8 @@ const Login = () => {
 
 
     const { setUser, handlegooglesignin} = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
     const handlesubmit = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -20,6 +22,7 @@ const Login = () => {
                 // Signed in 
                 const user = userCredential.user;
                 setUser(user)
+                navigate(location.state)
             })
             .catch((error) => {
                 console.log(error)
@@ -31,6 +34,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user
             setUser(user)
+            navigate(location.state)
         })
         .catch(error => {
             console.log(error)

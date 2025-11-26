@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router';
 
 const Services = () => {
 
@@ -11,7 +12,9 @@ const Services = () => {
             .catch(err => console.log(err))
     }, [])
     return (
+       
         <div className='px-[120px] mb-4'>
+             <title>Services</title>
             <div className='grid grid-cols-1 mt-12 md:grid-cols-3 gap-4'>
                 {
                     services.map(service =>
@@ -29,7 +32,7 @@ const Services = () => {
                                     <p>Price:{service?.price}</p>
                                 </div>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">View Details</button>
+                                    <Link to={`/details/${service?.serviceId}`}><button className="btn btn-primary">View Details</button></Link>
                                 </div>
                             </div>
                         </div>
