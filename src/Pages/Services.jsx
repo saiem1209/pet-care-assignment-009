@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import { motion } from "motion/react"
 
 const Services = () => {
 
@@ -12,13 +13,20 @@ const Services = () => {
             .catch(err => console.log(err))
     }, [])
     return (
-       
+
         <div className='px-[120px] mb-4'>
-             <title>Services</title>
+            <title>Services</title>
             <div className='grid grid-cols-1 mt-12 md:grid-cols-3 gap-4'>
                 {
                     services.map(service =>
-                        <div key={service.serviceId} className="card bg-base-100 w-80 shadow-sm">
+                        <motion.div initial={{ scale: 0.5 }}
+                        animate={{
+                            scale:1,
+                            transition : {duration : 1}
+                        }}
+                            whileHover={{ backgroundColor: "rgba(220, 220, 220, 1)" }}
+                            whileTap={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
+                            whileInView={{ opacity: 1 }} className="card bg-base-100 w-80 shadow-sm" key={service.serviceId}>
                             <figure>
                                 <img
                                     className='h-[200px] w-full object-cover'
@@ -35,7 +43,7 @@ const Services = () => {
                                     <Link to={`/details/${service?.serviceId}`}><button className="btn btn-primary">View Details</button></Link>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     )
                 }
             </div>

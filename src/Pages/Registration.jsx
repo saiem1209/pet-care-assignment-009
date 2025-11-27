@@ -19,22 +19,15 @@ const Registration = () => {
 
         const uppercase = /[A-Z]/;
 
-        const lowercase = /[a - z] /;
+        const lowercase = /[a-z]/;
 
         if (password.length < 6) {
-
             return alert("less than 6 characters")
-
         }
-
         if (!uppercase.test(password)) {
-
             return alert("Need a Uppercase")
-
         }
-
         if (!lowercase.test(password)) {
-
             return alert("Need a Lowercase")
         }
 
@@ -87,6 +80,7 @@ const Registration = () => {
                                 <div>
                                     <span>Already have an account?</span><Link className='text-blue-500' to="/login">Login</Link>
                                 </div>
+                                
                             </form>
                         </div>
                     </div>
