@@ -4,7 +4,7 @@ import ExpertVets from './ExpertVets';
 
 const Extra = () => {
     return (
-        <div className='px-[120px]'>
+        <div className='md:px-[120px] px-[50px]'>
             <ExpertVets></ExpertVets>
             <WinterTips></WinterTips>
 

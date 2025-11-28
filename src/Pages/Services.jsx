@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { motion } from "motion/react"
-
 const Services = () => {
 
     const [services, setServices] = useState([]);
@@ -26,7 +25,7 @@ const Services = () => {
                         }}
                             whileHover={{ backgroundColor: "rgba(220, 220, 220, 1)" }}
                             whileTap={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
-                            whileInView={{ opacity: 1 }} className="card bg-base-100 w-80 shadow-sm" key={service.serviceId}>
+                            whileInView={{ opacity: 1 }} className="card bg-base-100 w-full shadow-sm" key={service.serviceId}>
                             <figure>
                                 <img
                                     className='h-[200px] w-full object-cover'

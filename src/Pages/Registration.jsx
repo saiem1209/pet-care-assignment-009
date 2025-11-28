@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import auth from '../Firebase/firebase.config';
 import { updateProfile } from 'firebase/auth';
+import toast from "react-hot-toast";
 
 const Registration = () => {
 
-
+    const navigate = useNavigate();
     const { registerwitheEmalPassword, setUser, user, handlegooglesignin } = useContext(AuthContext);
 
     const handlesubmit = (e) => {
@@ -36,14 +37,16 @@ const Registration = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: photourl
                 }).then(() => {
-
                     setUser(userCredential.user);
+                    toast.success("Registration Successful!");
+                    e.target.reset();
+                    navigate("/")
                 }).catch((error) => {
-                    console.log(error);
+                    toast.error(error.message);
                 });
             })
             .catch((error) => {
-                console.log(error)
+                toast.error(error.message);
             });
     }
     const googlesignup = () => {
@@ -51,9 +54,10 @@ const Registration = () => {
             .then(result => {
                 const user = result.user
                 setUser(user)
+                navigate("/")
             })
             .catch(error => {
-                console.log(error)
+                toast.error(error.message);
             })
     }
     console.log(user);
@@ -80,7 +84,7 @@ const Registration = () => {
                                 <div>
                                     <span>Already have an account?</span><Link className='text-blue-500' to="/login">Login</Link>
                                 </div>
-                                
+
                             </form>
                         </div>
                     </div>

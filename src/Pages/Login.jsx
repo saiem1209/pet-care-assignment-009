@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import auth from '../Firebase/firebase.config';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -24,10 +25,11 @@ const Login = () => {
                 // Signed in 
                 const user = userCredential.user;
                 setUser(user)
-                navigate(location.state)
+                toast.success("Login Successful!");
+                navigate(location.state? location.state : '/')
             })
             .catch((error) => {
-                console.log(error)
+                toast.error(error.message);
             });
     }
 
@@ -36,10 +38,11 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 setUser(user)
+                toast.success("Login Successful!");
                 navigate(location.state? location.state : '/')
             })
             .catch(error => {
-                console.log(error)
+                toast.error(error.message);
             })
     }
     const handleforget = (e) =>{

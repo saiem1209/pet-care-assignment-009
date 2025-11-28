@@ -25,7 +25,7 @@ const Forgetpass = () => {
                     <form onSubmit={handlesubmit} className='fieldset'>
                         <label className="label">Email</label>
                         <input  defaultValue={email} name='email' type="email" className="input" placeholder="Email" />
-                        <button className="btn btn-neutral mt-4">End Email</button>
+                        <button className="btn btn-neutral mt-4">Send Email</button>
                     </form>
                 </div>
             </div>
