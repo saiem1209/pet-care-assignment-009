@@ -10,7 +10,7 @@ import { Navigation } from 'swiper/modules';
 
 const Sliders = () => {
     return (
-        <div className="h-[400px] w-full">
+        <div className="hidden lg:block h-[400px] w-full">
             <Swiper
                 navigation={true}
                 modules={[Navigation]}
