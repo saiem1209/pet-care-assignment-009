@@ -25,7 +25,8 @@ const Navbar = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/services">Services</Link></li>
                             <li><Link to={'/profile'}>My Profile</Link></li>
-                            <li><Link to={'add-services'}>Add Services</Link></li>
+                            <li><Link to={'add-services'}>Add Listing</Link></li>
+                            <li><Link to={'my-services'}>My Listing</Link></li>
                         </ul>
                     </div>
                     <div><img className="w-full h-10" src={logo} alt="" /></div>
@@ -35,7 +36,8 @@ const Navbar = () => {
                         <li><Link>Home</Link></li>
                         <li><Link to="/services">Services</Link></li>
                         <li><Link to={'/profile'}>My Profile</Link></li>
-                        <li><Link to={'add-services'}>Add Services</Link></li>
+                        <li><Link to={'/add-services'}>Add Listing</Link></li>
+                        <li><Link to={'/my-services'}>My Listing</Link></li>
 
                     </ul>
                 </div>
