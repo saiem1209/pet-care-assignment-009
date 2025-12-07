@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { Link } from 'react-router';
 
 const Myservices = () => {
     const [myservices, setmyServices] = useState([]);
@@ -53,7 +54,7 @@ const Myservices = () => {
                                     <td><p>{service?.price}</p></td>
                                     <td className='flex gap-2'>
                                         <button className="btn btn-error btn-xs">Delete</button>
-                                        <button className="btn btn-primary btn-xs">Edit</button>
+                                        <Link to={`/update/${service?._id}`}><button className="btn btn-primary btn-xs">Edit</button></Link>
                                     </td>
                                 </tr>
                             )

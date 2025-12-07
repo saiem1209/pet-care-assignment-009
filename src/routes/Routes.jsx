@@ -11,6 +11,7 @@ import Forgetpass from "../Pages/Forgetpass";
 import Error from "../Pages/Error";
 import AddServices from "../Pages/AddServices";
 import Myservices from "../Pages/Myservices";
+import UpdateListing from "../Pages/UpdateListing";
 
 
 const router = createBrowserRouter([
@@ -49,11 +50,15 @@ const router = createBrowserRouter([
         },
         {
           path: "/add-services",
-          element: <AddServices></AddServices>
+          element:<PrivateRoute> <AddServices></AddServices></PrivateRoute>
         },
         {
           path: "/my-services",
-          element: <Myservices></Myservices>
+          element: <PrivateRoute><Myservices></Myservices></PrivateRoute>
+        },
+        {
+          path: "/update/:id",
+          element: <PrivateRoute><UpdateListing></UpdateListing></PrivateRoute>
         }
     ]
   },
